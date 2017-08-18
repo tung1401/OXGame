@@ -80,7 +80,7 @@ namespace OXgame
                     var valid = Win(value);
                     if (valid == "o")
                     {
-                        Console.WriteLine("Result: o Won with " + total + "points \n");
+                        Console.WriteLine("Result: o Won with " + total + " points \n");
                         Score(total);
                         playAgain = PlayAgain();
                         done = true;
@@ -267,8 +267,14 @@ namespace OXgame
         static bool PlayAgain()
         {
             // ask for play again
-            Console.WriteLine("Do you want to play again (y/n)?");
-            var isExit = Console.ReadLine();
+            var isExit = string.Empty;
+            do
+            {
+                Console.WriteLine("Do you want to play again (y/n)?");
+                isExit = Console.ReadLine();
+            }
+            while (!isExit.ToLower().Equals("y") && !isExit.ToLower().Equals("n"));
+
             if (isExit.ToLower().Equals("y"))
             {
                 play = true;
@@ -306,6 +312,8 @@ namespace OXgame
             {
                 play = false;
             }
+            
+         
             return play;
         }
 
@@ -329,13 +337,56 @@ namespace OXgame
 
         static string Win(int value)
         {
+            total = 0;
+            //horizontal
             if (array3D[0, 0] == value && array3D[0, 1] == value && array3D[0, 2] == value)
-            {
-                total = 0;
+            {           
                 total = scores[0] + scores[1] + scores[2];
                 return value == 1 ? "o" : "x";
             }
+            if (array3D[1, 0] == value && array3D[1, 1] == value && array3D[1, 2] == value)
+            {
+                total = scores[3] + scores[4] + scores[5];
+                return value == 1 ? "o" : "x";
+            }
+            if (array3D[2, 0] == value && array3D[2, 1] == value && array3D[2, 2] == value)
+            {
+           
+                total = scores[6] + scores[7] + scores[8];
+                return value == 1 ? "o" : "x";
+            }
+            //Vertical
+            if (array3D[0, 0] == value && array3D[1, 0] == value && array3D[2, 0] == value)
+            {
+                total = scores[0] + scores[3] + scores[6];
+                return value == 1 ? "o" : "x";
+            }
+            if (array3D[0,1] == value && array3D[1, 1] == value && array3D[2, 1] == value)
+            {
+               
+                total = scores[1] + scores[4] + scores[7];
+                return value == 1 ? "o" : "x";
+            }
+            if (array3D[0,2] == value && array3D[1,2] == value && array3D[2, 2] == value)
+            {
+             
+                total = scores[2] + scores[5] + scores[8];
+                return value == 1 ? "o" : "x";
+            }
 
+            //crosswise
+            if (array3D[0, 0] == value && array3D[1, 1] == value && array3D[2, 2] == value)
+            {
+               
+                total = scores[0] + scores[4] + scores[8];
+                return value == 1 ? "o" : "x";
+            }
+            if (array3D[0, 2] == value && array3D[1, 1] == value && array3D[2, 0] == value)
+            {
+             
+                total = scores[3] + scores[4] + scores[5];
+                return value == 1 ? "o" : "x";
+            }
             if (turn == 9)
             {
                 return "d";
