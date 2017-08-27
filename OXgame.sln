@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OXgame", "OXgame\OXgame.csproj", "{1B121A70-282F-4C03-B008-754D27473266}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockSpan", "StockSpan\StockSpan.csproj", "{15CDC3A5-E1B2-419B-B209-DE3B3B8DECFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockSpanStack", "StockSpanStack\StockSpanStack.csproj", "{8B0306CF-ED0C-4942-89FB-CAE0BCE7C5A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1B121A70-282F-4C03-B008-754D27473266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B121A70-282F-4C03-B008-754D27473266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B121A70-282F-4C03-B008-754D27473266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15CDC3A5-E1B2-419B-B209-DE3B3B8DECFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15CDC3A5-E1B2-419B-B209-DE3B3B8DECFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15CDC3A5-E1B2-419B-B209-DE3B3B8DECFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15CDC3A5-E1B2-419B-B209-DE3B3B8DECFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0306CF-ED0C-4942-89FB-CAE0BCE7C5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0306CF-ED0C-4942-89FB-CAE0BCE7C5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0306CF-ED0C-4942-89FB-CAE0BCE7C5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0306CF-ED0C-4942-89FB-CAE0BCE7C5A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

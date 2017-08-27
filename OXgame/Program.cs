@@ -31,7 +31,7 @@ namespace OXgame
         static void Main(string[] args)
         {
             OrderTopScoreDesc();
-            StartGame();     
+            StartGame();
         }
 
 
@@ -132,26 +132,26 @@ namespace OXgame
                     return false;
                 }
             }
-            return true;   
+            return true;
         }
 
         public static void Score(int total)
         {
             //find min score
             var last = top5Score[top5Score.Length - 1];
-           
-                var splitScore = last.Split('-');
-                if (splitScore[1] != null)
+
+            var splitScore = last.Split('-');
+            if (splitScore[1] != null)
+            {
+                if (total > int.Parse(splitScore[1]))
                 {
-                    if (total > int.Parse(splitScore[1]))
-                    {
-                        Console.WriteLine("Congraturation!!! Your score are in top 5 player");
-                        Console.Write("Input your name: ");
-                        var name = Console.ReadLine();
-                        top5Score[top5Score.Length - 1] = name + "-" + total;
-                    }
+                    Console.WriteLine("Congraturation!!! Your score are in top 5 player");
+                    Console.Write("Input your name: ");
+                    var name = Console.ReadLine();
+                    top5Score[top5Score.Length - 1] = name + "-" + total;
                 }
-            
+            }
+
             OrderTopScoreDesc();
             DisplayTop5Score();
         }
@@ -312,8 +312,8 @@ namespace OXgame
             {
                 play = false;
             }
-            
-         
+
+
             return play;
         }
 
@@ -340,7 +340,7 @@ namespace OXgame
             total = 0;
             //horizontal
             if (array3D[0, 0] == value && array3D[0, 1] == value && array3D[0, 2] == value)
-            {           
+            {
                 total = scores[0] + scores[1] + scores[2];
                 return value == 1 ? "o" : "x";
             }
@@ -351,7 +351,7 @@ namespace OXgame
             }
             if (array3D[2, 0] == value && array3D[2, 1] == value && array3D[2, 2] == value)
             {
-           
+
                 total = scores[6] + scores[7] + scores[8];
                 return value == 1 ? "o" : "x";
             }
@@ -361,15 +361,15 @@ namespace OXgame
                 total = scores[0] + scores[3] + scores[6];
                 return value == 1 ? "o" : "x";
             }
-            if (array3D[0,1] == value && array3D[1, 1] == value && array3D[2, 1] == value)
+            if (array3D[0, 1] == value && array3D[1, 1] == value && array3D[2, 1] == value)
             {
-               
+
                 total = scores[1] + scores[4] + scores[7];
                 return value == 1 ? "o" : "x";
             }
-            if (array3D[0,2] == value && array3D[1,2] == value && array3D[2, 2] == value)
+            if (array3D[0, 2] == value && array3D[1, 2] == value && array3D[2, 2] == value)
             {
-             
+
                 total = scores[2] + scores[5] + scores[8];
                 return value == 1 ? "o" : "x";
             }
@@ -377,13 +377,13 @@ namespace OXgame
             //crosswise
             if (array3D[0, 0] == value && array3D[1, 1] == value && array3D[2, 2] == value)
             {
-               
+
                 total = scores[0] + scores[4] + scores[8];
                 return value == 1 ? "o" : "x";
             }
             if (array3D[0, 2] == value && array3D[1, 1] == value && array3D[2, 0] == value)
             {
-             
+
                 total = scores[3] + scores[4] + scores[5];
                 return value == 1 ? "o" : "x";
             }
@@ -396,6 +396,7 @@ namespace OXgame
 
         public static int ReturnValueInArray(string value)
         {
+
             int x = 0, y = 0;
             for (int position = 1; position <= 9; position++)
             {
