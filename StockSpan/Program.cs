@@ -49,7 +49,7 @@ namespace StockSpan
                 take = 50000;
                 while (take <= 100000)
                 {
-                    var startDate = DateTime.Now;
+                   
                     Trades = Trades.OrderBy(c => Guid.NewGuid()).Take(take).ToList();
 
                     var ListINT = Trades.Select(x => x.Value).ToArray();
@@ -66,7 +66,7 @@ namespace StockSpan
                     string total = "";
                     var index = 0;
                     var done = false;
-
+                    var startDate = DateTime.Now;
                     while (done == false)
                     {
                         int count = 1;
@@ -78,8 +78,8 @@ namespace StockSpan
                                 count++;
                             }
                         }
-                        total += count + ",";
-                        correspondingTemp[index] = count;
+                       // total += count + ",";
+                       // correspondingTemp[index] = count;
                         if (index == ListINT.Length - 1)
                         {
 
