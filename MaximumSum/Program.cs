@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,42 @@ namespace MaximumSum
 
         static void Main(string[] args)
         {
+          //  List<Trade> Trades = new List<Trade>();
+            var fileName = "c://mcs_test.in.txt";
+
+            List<int> list = new List<int>();
+            string result = string.Empty;
+            var first = true;
+            using (StreamReader sr = File.OpenText(fileName))
+            {
+                string s = String.Empty;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    if(s != "__" && s != "****")
+                    {                      
+                        if(first)
+                        {
+                            first = false;                     
+                        }
+                        else
+                        {
+                            list.Add(int.Parse(s));
+                        }                  
+                    }
+                    else
+                    {
+                        var range = MaximumSum(list.ToArray());
+                        result += range + ", ";
+                        list = new List<int>();
+                         first = true;
+                    }
+                }
+            }
+
+            Console.WriteLine(result);
+
+
+            // var test = maxSubArraySum(array1);
             Console.WriteLine("** Input size array (n) **");
             var size = int.Parse(Console.ReadLine());
             if (size > 0)
@@ -35,34 +72,29 @@ namespace MaximumSum
                 Console.WriteLine("\nMaximum Sum by range between " + range +"");
             }
         }
-        static int maxSubArraySum(int[] a, int size)
+        static string maxSubArraySum(int[] a)
         {
             int max_so_far = 0, max_ending_here = 0,
                start = 0, end = 0, s = 0;
             int p = 0; int q = 0;
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 max_ending_here += a[i];
-
                 if (max_so_far < max_ending_here)
                 {
                     max_so_far = max_ending_here;
                     start = s;
                     end = i;
+                    p = start;
+                    q = end;
                 }
-
                 if (max_ending_here < 0)
                 {
                     max_ending_here = 0;
                     s = i + 1;
                 }
             }
-            /* cout << "Maximum contiguous sum is "
-                 << max_so_far << endl;
-             cout << "Starting index " << start
-                 << endl << "Ending index " << end << endl;*/
-
-            return 0;
+            return string.Format("{0} {1}",p,q);
         }
         static string MaximumSum(int[] array)  
         {
@@ -77,7 +109,7 @@ namespace MaximumSum
                     if (current < array.Length)
                     {
                         sum += array[current];
-                        if (sum > max)
+                        if (sum >= max)
                         {
                             max = sum;
                             p = start;
