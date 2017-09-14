@@ -17,6 +17,10 @@ namespace Cards
         public static List<DeckModel> Deck1 = new List<DeckModel>();
         public static List<DeckModel> Deck2 = new List<DeckModel>();
 
+        public static List<DeckModel> WarDeck = new List<DeckModel>();
+        public static List<DeckModel> WarDeck1 = new List<DeckModel>();
+        public static List<DeckModel> WarDeck2 = new List<DeckModel>();
+
         static void Main(string[] args)
         {
 
@@ -55,26 +59,29 @@ namespace Cards
                 count++;
                 if (count < 100)
                 {
-                    Console.WriteLine(string.Format("****** Count: " + count + "**********"));
+                    Console.WriteLine(string.Format("****** Count: " + count + " **********"));
                     Console.WriteLine(string.Format("Deck 1 Before: " + PrintDeck(Deck1)));
                     Console.WriteLine(string.Format("Deck 2 Before: " + PrintDeck(Deck2)));
-
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(string.Format("[Compare] : " + Deck1.FirstOrDefault().Card + " , " + Deck2.FirstOrDefault().Card));
-
+                    Console.ForegroundColor = ConsoleColor.White;
                     Compare(Deck1.FirstOrDefault(), Deck2.FirstOrDefault());
                 }
 
-                if (count >= 100 || count == 24)
+                if (count >= 100)
                 {
                     Console.WriteLine(string.Format("Game ties after 100 steps"));
                     break;
                 }
-
-              
+             
                 Console.WriteLine(string.Format("Deck 1 After: " + PrintDeck(Deck1)));
                 Console.WriteLine(string.Format("Deck 2 After: " + PrintDeck(Deck2)));
                 Console.WriteLine(string.Format("****************"));
                 Console.WriteLine(string.Format(""));
+               /* if (count == 24)
+                {
+
+                }*/
             }
         }
 
@@ -114,16 +121,16 @@ namespace Cards
 
             if (card1.Value > card2.Value)
             {
-                Deck1.Remove(card1);
-                Deck2.Remove(card2);
+                if(WarDeck.Any() && WarDeck.Any())
+                {
 
-                Deck1.Add(tempcard1);
-                Deck1.Add(tempcard2);
+                    Deck1.AddRange(WarDeck);
+                    //  Deck1.AddRange(WarDeck2);
 
-            }
-            else if (card1.Value == card2.Value)
-            {
-                if (card1.Category > card2.Category)
+                    WarDeck = new List<DeckModel>();
+                    WarDeck = new List<DeckModel>();
+                }
+                else
                 {
                     Deck1.Remove(card1);
                     Deck2.Remove(card2);
@@ -131,25 +138,85 @@ namespace Cards
                     Deck1.Add(tempcard1);
                     Deck1.Add(tempcard2);
                 }
-                else if(card1.Category < card2.Category)
+
+               
+
+            }
+            else if (card1.Value == card2.Value)
+            {
+
+                //war mode
+                WarDeck.Add(tempcard1);
+                WarDeck.Add(tempcard2);
+
+                Deck1.Remove(card1);
+                Deck2.Remove(card2);
+
+                var m1 = Deck1.FirstOrDefault();
+                var m2 = Deck2.FirstOrDefault();
+
+                WarDeck.Add(m1);
+                WarDeck.Add(m2);
+
+                Deck1.Remove(card1);
+                Deck2.Remove(card2);
+
+                var o1 = Deck1.FirstOrDefault();
+                var o2 = Deck2.FirstOrDefault();
+
+                WarMode(o1, o2);
+
+
+                //if (card1.Category > card2.Category)
+                //{
+                //    Deck1.Remove(card1);
+                //    Deck2.Remove(card2);
+
+                //    Deck1.Add(tempcard1);
+                //    Deck1.Add(tempcard2);
+                //}
+                //else if(card1.Category < card2.Category)
+                //{
+                //    Deck1.Remove(card1);
+                //    Deck2.Remove(card2);
+
+                //    Deck2.Add(tempcard1);
+                //    Deck2.Add(tempcard2);
+
+                //}
+            }
+            else if (card1.Value < card2.Value)
+            {
+                if (WarDeck.Any() && WarDeck.Any())
+                {
+                    Deck2.AddRange(WarDeck);
+                    //  Deck2.AddRange(WarDeck2);
+
+                    WarDeck = new List<DeckModel>();
+                    WarDeck = new List<DeckModel>();
+                }
+                else
                 {
                     Deck1.Remove(card1);
                     Deck2.Remove(card2);
 
                     Deck2.Add(tempcard1);
                     Deck2.Add(tempcard2);
-                 
                 }
-            }
-            else if (card1.Value < card2.Value)
-            {
-                Deck1.Remove(card1);
-                Deck2.Remove(card2);
 
-                Deck2.Add(tempcard1);
-                Deck2.Add(tempcard2);
+
+              
                 
             }
+        }
+
+        public static void WarMode(DeckModel card1, DeckModel card2)
+        {
+
+            Compare(card1, card2);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(string.Format("****** War **********"));
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public class DeckModel
@@ -204,7 +271,6 @@ namespace Cards
             };
             return list;
         }
-
         public static List<DeckModel> DataMockup21()
         {
             var list = new List<DeckModel> {
@@ -225,7 +291,6 @@ namespace Cards
             };
             return list;
         }
-
         public static List<DeckModel> DataMockup31()
         {
             var list = new List<DeckModel> {
@@ -282,5 +347,6 @@ namespace Cards
             };
             return list;
         }
+
     }
 }
