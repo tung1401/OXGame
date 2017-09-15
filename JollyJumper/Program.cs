@@ -13,7 +13,7 @@ namespace JollyJumper
         {
             var list = new List<int> {1,4,2,3};
             var msg2 = JollyJumper(list);
-            var msg = CheckJumper();
+          //  var msg = CheckJumper();
 
         }
 
