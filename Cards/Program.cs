@@ -348,5 +348,46 @@ namespace Cards
             return list;
         }
 
+        public static List<DeckModel> DataMockup51()
+        {
+            var list = new List<DeckModel> {
+          
+                new DeckModel { Card = "KC", Value = (int)CardValue.K,Category = (int)TypeValue.C },
+                new DeckModel { Card = "AD", Value = (int)CardValue.A, Category = (int)TypeValue.D },
+                new DeckModel { Card = "9H", Value = (int)CardValue.N,Category = (int)TypeValue.H },
+                new DeckModel { Card = "TS", Value = (int)CardValue.T,Category = (int)TypeValue.S },
+                  new DeckModel { Card = "JC", Value = (int)CardValue.J,Category = (int)TypeValue.C },
+                    new DeckModel { Card = "QD", Value = (int)CardValue.Q,Category = (int)TypeValue.D  },
+                     new DeckModel { Card = "KH", Value = (int)CardValue.K,Category = (int)TypeValue.H },
+                            new DeckModel { Card = "AS", Value = (int)CardValue.A,Category = (int)TypeValue.S  },
+                                  new DeckModel { Card = "9C", Value = (int)CardValue.N,Category = (int)TypeValue.C },
+                new DeckModel { Card = "TD", Value = (int)CardValue.T, Category = (int)TypeValue.D },
+                new DeckModel { Card = "JH", Value = (int)CardValue.J,Category = (int)TypeValue.H },
+                new DeckModel { Card = "QS", Value = (int)CardValue.Q,Category = (int)TypeValue.S  },
+            };
+            return list;
+        }
+        public static List<DeckModel> DataMockup52()
+        {
+            var list = new List<DeckModel> {
+                new DeckModel { Card = "TC", Value = (int)CardValue.T,Category = (int)TypeValue.C   },
+                new DeckModel { Card = "JD", Value = (int)CardValue.J,Category = (int)TypeValue.D  },
+                new DeckModel { Card = "QH", Value = (int)CardValue.Q,Category = (int)TypeValue.H  },
+                new DeckModel { Card = "KS", Value = (int)CardValue.K,Category = (int)TypeValue.S  },
+                new DeckModel { Card = "AC", Value = (int)CardValue.A,Category = (int)TypeValue.C  },
+                new DeckModel { Card = "AH", Value = (int)CardValue.A,Category = (int)TypeValue.H },
+                new DeckModel { Card = "TH", Value = (int)CardValue.T,Category = (int)TypeValue.H    },
+                new DeckModel { Card = "JS", Value = (int)CardValue.J,Category = (int)TypeValue.S   },
+                  new DeckModel { Card = "9S", Value = (int)CardValue.N,Category = (int)TypeValue.S     },
+                new DeckModel { Card = "QC", Value = (int)CardValue.Q,Category = (int)TypeValue.C   },
+                new DeckModel { Card = "KD", Value = (int)CardValue.K,Category = (int)TypeValue.D },
+                new DeckModel { Card = "9D", Value = (int)CardValue.N,Category = (int)TypeValue.D   },
+              
+
+            };
+            return list;
+        }
+
+
     }
 }

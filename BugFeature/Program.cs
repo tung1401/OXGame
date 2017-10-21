@@ -9,7 +9,6 @@ namespace BugFeature
     class Program
     {
         public static List<Patch> listPatch = new List<Patch>();
-        // public static List<int> Problem = new List<int> { 1, 1, 1 }; //0 - 1
         public static List<int> Problem = new List<int>();
         public static List<int> StateCheck = new List<int>(); //0 - 1
         public static List<Patch> AvailablePatch = new List<Patch>();
@@ -19,8 +18,90 @@ namespace BugFeature
         public static int Summary = 0;
         static void Main(string[] args)
         {
-            Init(); // set up patch and pre-condition
-            Process();
+            // Init15();
+            Init11();
+            //Init(); // set up patch and pre-condition
+          //  for(var i = 0; i < 2; i++) { 
+                Process();
+            //}
+
+        }
+
+        public static int useIndex = 0;
+
+        public static void Init1()
+        {
+            Problem = new List<int> { 1, 1, 1 };
+            // -1 ignore
+            // 0 fixed
+            // 1 bug
+            var Patch1 = new Patch()
+            {
+                Index = 1,
+                Score = 1,
+                AvailableCount = 4,
+                Condition = new List<int> { -1, -1, -1 },
+                Fixing = new List<int> { -1, -1, 0 },
+            };
+
+            var Patch2 = new Patch()
+            {
+                Index = 2,
+                Score = 1,
+                AvailableCount = 2,
+                Condition = new List<int> { -1, -1, 0 },
+                Fixing = new List<int> { -1, 0, 1 },
+            };
+
+            var Patch3 = new Patch()
+            {
+                Index = 3,
+                Score = 2,
+                AvailableCount = 1,
+                Condition = new List<int> { -1, 0, 0 },
+                Fixing = new List<int> { 0, 1, 1 },
+            };
+
+            listPatch.Add(Patch1);
+            listPatch.Add(Patch2);
+            listPatch.Add(Patch3);
+        }
+        public static void Init11()
+        {
+            Problem = new List<int> { 1, 1, 1 };
+            // -1 ignore
+            // 0 fixed
+            // 1 bug
+            var Patch1 = new Patch()
+            {
+                Index = 1,
+                Score = 1,
+                AvailableCount = 3,
+                Condition = new List<int> { -1, -1, -1 },
+                Fixing = new List<int> { -1, -1, 0 },
+            };
+
+            var Patch2 = new Patch()
+            {
+                Index = 2,
+                Score = 1,
+                AvailableCount = 2,
+                Condition = new List<int> { -1, -1, 0 },
+                Fixing = new List<int> { -1, 0, 1 },
+            };
+
+            var Patch3 = new Patch()
+            {
+                Index = 3,
+                Score = 2,
+                AvailableCount = 1,
+                Condition = new List<int> { -1, 0, 0 },
+                Fixing = new List<int> { 0, 1, 1 },
+            };
+
+            listPatch.Add(Patch1);
+            listPatch.Add(Patch2);
+            listPatch.Add(Patch3);
         }
         public static void Init()
         {
@@ -73,6 +154,262 @@ namespace BugFeature
 
             listPatch.Add(Patch1);
         }
+        public static void Init15()
+        {
+            // -1 ignore
+            // 0 fixed
+            // 1 bug
+            Problem = new List<int>();
+            for (var p = 0; p < 15; p++)
+            {
+                Problem.Add(1);
+            }
+            var indexVal = 1;
+            listPatch.Add(new Patch()
+            {
+                Index = 1,
+                Score = 10,
+                Condition = new List<int> {  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,-1 },
+                Fixing = new List<int> {  -1, -1, -1, -1, -1, -1,  -1, -1, -1, -1, -1, -1, -1, -1,0 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 2,
+                Score = 10,
+                Condition = new List<int> {  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0 },
+                Fixing = new List<int> {  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 3,
+                Score = 10,
+                Condition = new List<int> {  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,-1, 0 ,0},
+                Fixing = new List<int> {   -1, -1, -1, -1, -1, -1,  -1, -1, -1, -1, -1, -1, 0, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 4,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, -1 -1, -1, -1, -1, -1, -1, 0, 0, 0 },
+                Fixing = new List<int> { -1, -1, -1, -1, -1, -1, -1,-1, -1, -1, -1, 0, 1, 1, 1 },
+            });
+            //indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 5,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 5,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, -1,-1, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1, -1, -1, -1, -1, -1, -1,-1, -1, 0, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 6,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1,1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 7,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1,-1, -1, -1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 8,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1,-1, -1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 9,
+                Score = 10,
+                Condition = new List<int> {  -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1,-1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 10,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 11,
+                Score = 10,
+                Condition = new List<int> {  -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                Fixing = new List<int> { -1,-1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 12,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1,-1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 13,
+                Score = 10,
+                Condition = new List<int> { -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1,-1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+            });
+            indexVal++;
+
+            listPatch.Add(new Patch()
+            {
+                Index = 14,
+                Score = 10,
+                Condition = new List<int> { -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { -1,0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            });
+            indexVal++;
+
+
+
+
+            listPatch.Add(new Patch()
+            {
+                Index = 15,
+                Score = 10,
+                Condition = new List<int> { -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                Fixing = new List<int> { 0, 1,1,1,1,1,1,1,1,1,1,1,1,1 },
+            }); 
+
+            /*
+            10 000000000000000 00000000000000- 
+   10 00000000000000- 0000000000000-+ 
+   10 0000000000000-- 000000000000-++ 
+   10 000000000000--- 00000000000-+++ 
+   10 00000000000---- 0000000000-++++ 
+   10 0000000000----- 000000000-+++++ 
+   10 000000000------ 00000000-++++++ 
+   10 00000000------- 0000000-+++++++ 
+   10 0000000-------- 000000-++++++++ 
+   10 000000--------- 00000-+++++++++ 
+   10 00000---------- 0000-++++++++++ 
+   10 0000----------- 000-+++++++++++ 
+   10 000------------ 00-++++++++++++ 
+   10 00------------- 0-+++++++++++++ 
+   10 0-------------- -++++++++++++++  
+
+
+               */
+
+        }
+        public static void Init33()
+        {
+            Problem = new List<int> { 1, 1, 1 };
+            // -1 ignore
+            // 0 fixed
+            // 1 bug
+            var Patch1 = new Patch()
+            {
+                Index = 1,
+                Score = 1,
+                Condition = new List<int> { -1, -1, -1 },
+                Fixing = new List<int> { -1, 0, 0 },
+            };
+
+            var Patch2 = new Patch()
+            {
+                Index = 2,
+                Score = 3,
+                Condition = new List<int> { -1, -1, -1 },
+                Fixing = new List<int> { 0, 0, 1 },
+            };
+
+            var Patch3 = new Patch()
+            {
+                Index = 3,
+                Score = 2,
+                Condition = new List<int> { -1, 0, 0 },
+                Fixing = new List<int> { 0, 1, 1 },
+            };
+
+            listPatch.Add(Patch1);
+            listPatch.Add(Patch2);
+            listPatch.Add(Patch3);
+        }
+        public static void Init4()
+        {
+            Problem = new List<int>();
+            for (var p = 0; p < 3; p++)
+            {
+                Problem.Add(1);
+            }
+            var indexVal = 0;
+            listPatch.Add(new Patch()
+            {
+                Index = 1,
+                Score = 2,
+                Condition = new List<int> { 1,-1,-1 },
+                Fixing = new List<int> { -1, -1, 0 },
+            });
+            indexVal++;
+            listPatch.Add(new Patch()
+            {
+                Index = 2,
+                Score = 1,
+                Condition = new List<int> { -1, -1, 0 },
+                Fixing = new List<int> { 1, 0, -1 },
+            });
+            indexVal++;
+            listPatch.Add(new Patch()
+            {
+                Index = 3,
+                Score = 2,
+                Condition = new List<int> { -1, 0, 0 },
+                Fixing = new List<int> { 0, 1, 1 },
+            });
+            indexVal++;
+            listPatch.Add(new Patch()
+            {
+                Index = 4,
+                Score = 4,
+                Condition = new List<int> { 1, -1, -1 },
+                Fixing = new List<int> { 0, -1, 0 },
+            });
+            indexVal++;
+        }
+
+        public static List<Patch> Queue = new List<Patch>();
+        public static List<int> Before = new List<int>();
         public static void Process()
         {
             var doStop = Problem.Count;
@@ -90,22 +427,47 @@ namespace BugFeature
         public static bool SolveBug(List<Patch> listPatch)
         {
             var allPatch = listPatch;
-            var availablePatch = FindSolution(allPatch); // find patch which can solve follow pre-condtion
+            var availablePatch = new List<Patch>(); // find patch which can solve follow pre-condtion
+            if (Queue.Any())
+            {
+                availablePatch = Queue;
+            }
+            else
+            {
+                availablePatch = FindSolution(allPatch);
+            }
+
             if (availablePatch.Any())
             {
                 //Find best patch by Max Score and Index
-                var maxPatch = availablePatch.OrderByDescending(x => x.Score).ThenByDescending(x => x.Index).ToList();
+                var maxPatch = availablePatch.Where(x=>x.Index != useIndex).OrderByDescending(x => x.Score).ThenBy(x => x.Index).ToList(); //.ThenByDesc0000ending(x => x.Index)
                 var bestPatch = maxPatch.FirstOrDefault();
+      
+                // queue keep not use,
+                // if can not fix problem, use in q
 
                 //Exculte
                 Console.WriteLine("- Use Patch: " + bestPatch.Index);
                 Console.WriteLine("Before Solve: " + DisplayProblem());
                 ExcultePatch(bestPatch);
+
+                ReducePatch(bestPatch);
+                useIndex = bestPatch.Index;
                 Summary += bestPatch.Score;
                 Console.WriteLine("After Solve: " + DisplayProblem());
                 Console.WriteLine(" ");
 
-                // if not done
+                if (availablePatch.Count > 1)
+                {
+                    Queue = availablePatch.Where(x => x.Index != bestPatch.Index).ToList();
+                }
+                if (availablePatch.Count <= 1)
+                {
+                    Queue = new List<Patch>();
+                }
+
+                
+                    // if not done
                 if (Stop() == 0)
                 {
                     Console.WriteLine(string.Format("Fastest sequence takes {0} seconds. ", Summary));
@@ -123,7 +485,7 @@ namespace BugFeature
         }
         public static int CheckPreCondition(int problem, int condition)
         {
-            if (condition == -1 && problem != -1) 
+            if (condition == -1 && problem != -1 || condition == -1) 
             {
                 return 1; //match
             }
@@ -131,7 +493,11 @@ namespace BugFeature
             {
                 return 1; //match
             }
-            else if (condition == 0 && problem == 1)
+            else if (condition == 1 && problem == 1)
+            {
+                return 1; //match
+            }
+            else if (condition == 0 && problem != 0)
             {
                 return 0; //not match
             }
@@ -177,6 +543,7 @@ namespace BugFeature
         public class Patch
         {
             public int Index { set; get; }
+            public int AvailableCount  { set; get; } 
             public int Score { set; get; }
             public List<int> Condition { set; get; }
             public List<int> Fixing { set; get; }
@@ -192,7 +559,15 @@ namespace BugFeature
             return str;
         }
 
-
+        public static void ReducePatch(Patch patch)
+        {
+            var tempPatch = patch;         
+            tempPatch.AvailableCount -= 1;
+            listPatch.Remove(patch);
+            if(tempPatch.AvailableCount > 0) { 
+                listPatch.Add(tempPatch);
+            }
+        }
 
 
         #region OLD Code
