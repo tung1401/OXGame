@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrefixAverage", "PrefixAver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindBrute", "FindBrute\FindBrute.csproj", "{47D398B4-C2E5-4FBE-97C1-B3FB62809C37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMutiply", "MatrixMutiply\MatrixMutiply.csproj", "{C0A4A2DB-E0D1-4F53-9391-6EAA2349A6B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{47D398B4-C2E5-4FBE-97C1-B3FB62809C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D398B4-C2E5-4FBE-97C1-B3FB62809C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D398B4-C2E5-4FBE-97C1-B3FB62809C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A4A2DB-E0D1-4F53-9391-6EAA2349A6B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A4A2DB-E0D1-4F53-9391-6EAA2349A6B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A4A2DB-E0D1-4F53-9391-6EAA2349A6B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A4A2DB-E0D1-4F53-9391-6EAA2349A6B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
